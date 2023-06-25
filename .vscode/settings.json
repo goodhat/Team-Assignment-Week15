@@ -1,9 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "solidity.formatter": "forge",
-    "[solidity]": {
-        "editor.defaultFormatter": "JuanBlanco.solidity"
-    },
-    "prettier.printWidth": 220,
-    "prettier.tabWidth": 2,
-}
