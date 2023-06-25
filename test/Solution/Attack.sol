@@ -3,7 +3,7 @@ pragma solidity ^0.7.4;
 
 import "forge-std/Test.sol";
 
-import "../src/IntegerETHBank.sol";
+import "../../src/IntegerETHBank.sol";
 
 contract Attack is IntegerETHBankUser {
     address public target;
